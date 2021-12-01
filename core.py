@@ -7,7 +7,7 @@ from models import (
     BillInquiry
 )
 
-from src.configs import BILL_INQUIRY_URL
+from configs import BILL_INQUIRY_URL
 
 CONSUMER_KEY = "Y365qfDj6OZ0rzpTwckKux25HSsa"
 CONSUMER_PASSWORD = "k4EyWgYjXdvbcnbpvzQcoJWMmFYa"

@@ -7,7 +7,7 @@ from models import (
     ClientToken
 )
 
-from src.configs import TOKEN_URL, CLIENT_AUTH_URL
+from configs import TOKEN_URL, CLIENT_AUTH_URL
 
 CONSUMER_KEY = "Y365qfDj6OZ0rzpTwckKux25HSsa"
 CONSUMER_PASSWORD = "k4EyWgYjXdvbcnbpvzQcoJWMmFYa"
