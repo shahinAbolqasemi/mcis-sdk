@@ -12,6 +12,7 @@ from configs import TOKEN_URL, CLIENT_AUTH_URL
 CONSUMER_KEY = "Y365qfDj6OZ0rzpTwckKux25HSsa"
 CONSUMER_PASSWORD = "k4EyWgYjXdvbcnbpvzQcoJWMmFYa"
 
+
 class AccessTokenManager:
     def __init__(self, consumer_key: str, consumer_password: str, grant_type: str = 'client_credentials'):
         self.grant_type = grant_type
