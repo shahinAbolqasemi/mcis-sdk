@@ -53,7 +53,7 @@ class BillInquiryManager:
 
 
 async def main():
-    from src.authorization import AccessTokenManager, ClientTokenManager
+    from authorization import AccessTokenManager, ClientTokenManager
     atm = AccessTokenManager(CONSUMER_KEY, CONSUMER_PASSWORD)
     at = await atm.get_access_token()
     ctm = ClientTokenManager(at)
