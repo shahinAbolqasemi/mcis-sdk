@@ -42,11 +42,13 @@ async def async_get_bill_inquiry(
 
 
 async def main():
-    from authorization import async_get_access_token, async_get_client_token
+    from authorization import async_get_access_token, async_get_client_token, async_verify_otp_request, async_user_otp_request_code_included
     at = await async_get_access_token(CONSUMER_KEY, CONSUMER_PASSWORD)
     ct = await async_get_client_token(at)
-    print(await async_get_bill_inquiry(at, ct, '9122222222'))
-
+    # print(await async_get_bill_inquiry(at, ct, '9122222222'))
+    at = await async_get_access_token(consumer_key='ke2jumSLt67TNoY_TUQS7Wx0fDga', consumer_password='XPG9s3BGmzpKle_LM9DHFQyCpk4a')
+    code = await async_user_otp_request_code_included(access_token=at, msisdn='9338531066')
+    print(await async_verify_otp_request(sms_code=code, username='9338531066', access_token=at))
 
 if __name__ == "__main__":
     import asyncio
