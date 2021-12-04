@@ -58,7 +58,7 @@ async def main():
     at = await atm.get_access_token()
     ctm = ClientTokenManager(at)
     ct = await ctm.get_client_token()
-    print(await BillInquiryManager(at, ct, '9183502318').get_bill_inquiry())
+    print(await BillInquiryManager(at, ct, '9122222222').get_bill_inquiry())
 
 
 if __name__ == "__main__":
