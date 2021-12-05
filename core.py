@@ -7,10 +7,7 @@ from models import (
     BillInquiry
 )
 
-from configs import BILL_INQUIRY_URL
-
-CONSUMER_KEY = "Y365qfDj6OZ0rzpTwckKux25HSsa"
-CONSUMER_PASSWORD = "k4EyWgYjXdvbcnbpvzQcoJWMmFYa"
+from configs import BILL_INQUIRY_URL, CONSUMER_KEY, CONSUMER_PASSWORD
 
 
 async def async_get_bill_inquiry(
@@ -42,11 +39,7 @@ async def async_get_bill_inquiry(
 
 
 async def main():
-    from authorization import async_get_access_token, async_get_client_token
-    at = await async_get_access_token(CONSUMER_KEY, CONSUMER_PASSWORD)
-    ct = await async_get_client_token(at)
-    print(await async_get_bill_inquiry(at, ct, '9122222222'))
-
+    pass
 
 if __name__ == "__main__":
     import asyncio
