@@ -36,12 +36,3 @@ async def async_get_bill_inquiry(
                                 headers=headers)
     resp.raise_for_status()
     return BillInquiry(**json.loads(resp.text)['result']['data'])
-
-
-async def main():
-    pass
-
-if __name__ == "__main__":
-    import asyncio
-
-    asyncio.run(main())
