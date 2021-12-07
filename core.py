@@ -27,8 +27,8 @@ async def async_get_bill_inquiry(
 ):
     headers = {
         "Accept": "application/json",
-        "Authorization": f"Bearer {access_token.access_token}",
-        "C-Authorization": f"Bearer {client_authorization.token}",
+        "Authorization": access_token.access_token,
+        "C-Authorization": client_authorization.token,
         "prefer": "dynamic=false"
     }
     async with httpx.AsyncClient() as client:
