@@ -18,7 +18,8 @@ async def async_rbt_inquiry(
             'dynamic=false,code=520',
             'dynamic=true,code=520'
         ] = 'dynamic=false',
-        x_authorization: str) -> Literal['ACTIVE', 'INACTIVE']:
+        x_authorization: str
+) -> Literal['ACTIVE', 'INACTIVE']:
     headers = {
         "Accept": "application/json; charset=UTF-8",
         "X-Authorization": x_authorization,
