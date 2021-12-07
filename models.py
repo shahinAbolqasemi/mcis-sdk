@@ -67,3 +67,20 @@ class LoggedInUser(BaseModel):
     @validator('expires_in')
     def remove_datetime_tz(cls, value):
         return value.replace(tzinfo=None)
+
+
+class RefreshTokenLoggedInUser(BaseModel):
+    acl: List[ACL]
+    expires_in: datetime.datetime = Field(alias='expiresIn')
+    refresh_token: str = Field(alias='refreshToken')
+    token: str
+    type: str
+
+    @root_validator
+    def check_token(cls, values):
+        values['token'] = f"{values.get('type')} {values.get('token')}"
+        return values
+
+    @validator('expires_in')
+    def remove_datetime_tz(cls, value):
+        return value.replace(tzinfo=None)
