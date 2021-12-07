@@ -27,8 +27,8 @@ async def async_get_bill_inquiry(
 ):
     headers = {
         "Accept": "application/json",
-        "Authorization": f"Bearer {access_token.access_token}",
-        "C-Authorization": f"Bearer {client_authorization.token}",
+        "Authorization": access_token.access_token,
+        "C-Authorization": client_authorization.token,
         "prefer": "dynamic=false"
     }
     async with httpx.AsyncClient() as client:
@@ -36,12 +36,3 @@ async def async_get_bill_inquiry(
                                 headers=headers)
     resp.raise_for_status()
     return BillInquiry(**json.loads(resp.text)['result']['data'])
-
-
-async def main():
-    pass
-
-if __name__ == "__main__":
-    import asyncio
-
-    asyncio.run(main())

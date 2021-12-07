@@ -36,7 +36,7 @@ async def async_get_client_token(
     headers = {
         "Accept": "application/json",
         "prefer": prefer,
-        "Authorization": f"Bearer {access_token.access_token}"
+        "Authorization": access_token.access_token
     }
     async with httpx.AsyncClient() as client:
         resp = await client.get(url=CLIENT_AUTH_URL, headers=headers)
@@ -62,7 +62,7 @@ async def async_user_otp_request_code_included(
         "Accept": "application/json",
         "prefer": prefer,
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {access_token.access_token}"
+        "Authorization": access_token.access_token
     }
     async with httpx.AsyncClient() as client:
         resp = await client.post(
@@ -92,7 +92,7 @@ async def async_verify_otp_request(
         "Accept": "application/json",
         "username": username,
         "prefer": prefer,
-        "Authorization": f"Bearer {access_token.access_token}"
+        "Authorization": access_token.access_token
     }
     async with httpx.AsyncClient() as client:
         resp = await client.get(url=url, headers=headers)
