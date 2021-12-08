@@ -1,9 +1,9 @@
-from decorator import request_url
-from configs import CHARGE_BALANCE_INQUIRY_URL
+from mci_services.decorator import request_url
+from mci_services.configs import CHARGE_BALANCE_INQUIRY_URL
 from typing import Literal
 import httpx
 import json
-from models import AccessToken
+from mci_services.models import AccessToken
 
 
 @request_url(url=CHARGE_BALANCE_INQUIRY_URL)

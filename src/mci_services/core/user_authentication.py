@@ -1,15 +1,15 @@
-from typing import Any, Tuple, Literal
-from decorator import request_url
+from typing import Tuple, Literal
+from mci_services.decorator import request_url
 import httpx
 import json
-from configs import (
+from mci_services.configs import (
     USER_OTP_REQUEST_URL,
     USER_LOGIN_BY_OTP_URL,
     USER_LOGIN_REFRESH_TOKEN_URL,
     USER_OTP_REQUEST_CODE_INCLUDED_URL,
     USER_VERIFY_OTP_REQUEST_CODE_INCLUDED,
 )
-from models import AccessToken, LoggedInUser, RefreshTokenLoggedInUser
+from mci_services.models import AccessToken, LoggedInUser, RefreshTokenLoggedInUser
 
 
 @request_url(url=USER_OTP_REQUEST_URL)

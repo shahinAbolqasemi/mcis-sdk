@@ -1,14 +1,14 @@
 import httpx
 import json
 from typing import Literal
-from decorator import request_url
-from models import (
+from mci_services.decorator import request_url
+from mci_services.models import (
     AccessToken,
     ClientToken
 )
-from utils import username_and_password_to_b64_token
+from mci_services.utils import username_and_password_to_b64_token
 
-from configs import TOKEN_URL, CLIENT_AUTH_URL, VERIFY_OTP_CODE_URL, OTP_REQUEST_CODE_INCLUDED_URL
+from mci_services.configs import TOKEN_URL, CLIENT_AUTH_URL, VERIFY_OTP_CODE_URL, OTP_REQUEST_CODE_INCLUDED_URL
 
 
 async def async_get_access_token(

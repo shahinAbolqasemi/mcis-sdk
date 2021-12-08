@@ -1,13 +1,13 @@
 import httpx
 import json
 from typing import Literal
-from models import (
+from mci_services.models import (
     AccessToken,
     ClientToken,
     BillInquiry
 )
 
-from configs import BILL_INQUIRY_URL, CONSUMER_KEY, CONSUMER_PASSWORD
+from mci_services.configs import BILL_INQUIRY_URL
 
 
 async def async_get_bill_inquiry(
