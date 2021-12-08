@@ -42,6 +42,7 @@ setuptools.setup(
         "License :: Apache License",
         "Operating System :: OS Independent",
     ],
+    package_dir={"": "src"},
     packages=setuptools.find_packages(where='src'),
     python_requires=">=3.8",
     license='Proprietary and Confidential',
