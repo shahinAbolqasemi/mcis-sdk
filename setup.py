@@ -11,7 +11,7 @@ EXTRA_REQUIRE_UTILITY = []
 
 DIR = pathlib.Path(__file__).parent
 
-VERSION = (DIR / "VERSION").read_text()
+# VERSION = (DIR / "VERSION").read_text()
 README = (DIR / "README.md").read_text()
 
 PLATFORMS = [
@@ -25,7 +25,7 @@ KEYWORDS = [
 ]
 
 setuptools.setup(
-    name="mci_service_sdk",
+    name="mci_services_sdk",
     version="0.0.1",
     author='Amerandish Dev',
     author_email='info@amerandish.com',
@@ -42,8 +42,7 @@ setuptools.setup(
         "License :: Apache License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src"),
+    packages=setuptools.find_packages(where='src'),
     python_requires=">=3.8",
     license='Proprietary and Confidential',
     install_requires=REQUIRES,
