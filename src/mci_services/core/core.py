@@ -1,4 +1,4 @@
-from mci_services.core.Mixins.ServiceMixins import AuthenticationServiceMixin, BillServiceMixin, UserAuthServiceMixin, \
+from mci_services.mixins.service_mixins import AuthenticationServiceMixin, BillServiceMixin, UserAuthServiceMixin, \
     EtopupMixin
 from mci_services.core.authentication import async_get_access_token
 from mci_services.models import (
