@@ -1,38 +1,39 @@
-import httpx
-import json
-from typing import Literal
+from mci_services.core.Mixins.ServiceMixins import AuthenticationServiceMixin, BillServiceMixin, UserAuthServiceMixin, \
+    EtopupMixin
+from mci_services.core.authentication import async_get_access_token
 from mci_services.models import (
     AccessToken,
-    ClientToken,
-    BillInquiry
 )
 
-from mci_services.configs import BILL_INQUIRY_URL
 
-
-async def async_get_bill_inquiry(
-        access_token: AccessToken,
-        client_authorization: ClientToken,
-        bill_id: str,
-        bill_type: Literal[
-            "gas",
-            "electricity",
-            "water",
-            "rahvar",
-            "mobile",
-            "mobileHotbill",
-            "pstn",
-            "pstnHotbill"
-        ] = 'mobile'
+class ServiceApplication(
+    AuthenticationServiceMixin,
+    BillServiceMixin,
+    UserAuthServiceMixin,
+    EtopupMixin
 ):
-    headers = {
-        "Accept": "application/json",
-        "Authorization": access_token.access_token,
-        "C-Authorization": client_authorization.token,
-        "prefer": "dynamic=false"
-    }
-    async with httpx.AsyncClient() as client:
-        resp = await client.get(url=BILL_INQUIRY_URL.format(bill_id=bill_id, bill_type=bill_type),
-                                headers=headers)
-    resp.raise_for_status()
-    return BillInquiry(**json.loads(resp.text)['result']['data'])
+    def __init__(self, access_token: AccessToken, name: str = None):
+        self.access_token = access_token
+
+    @classmethod
+    async def create_application(cls, consumer_key: str, consumer_password: str):
+        access_token = await async_get_access_token(consumer_key, consumer_password)
+        return cls(access_token=access_token)
+
+    @property
+    async def client_token(self):
+        return await self.async_get_client_token()
+
+
+async def main():
+    sapp = await ServiceApplication.create_application(
+        consumer_key="Y365qfDj6OZ0rzpTwckKux25HSsa",
+        consumer_password="k4EyWgYjXdvbcnbpvzQcoJWMmFYa"
+    )
+    print(await sapp.async_get_bill_inquiry(bill_id='9183502318'))
+
+
+if __name__ == "__main__":
+    import asyncio
+
+    asyncio.run(main())
