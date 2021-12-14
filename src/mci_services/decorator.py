@@ -1,4 +1,5 @@
 import functools
+from mci_services.utils import get_default_args
 
 
 def request_url(url: str):
