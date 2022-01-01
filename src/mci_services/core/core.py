@@ -24,16 +24,3 @@ class ServiceApplication(
     async def client_token(self):
         return await self.async_get_client_token()
 
-
-async def main():
-    sapp = await ServiceApplication.create_application(
-        consumer_key="Y365qfDj6OZ0rzpTwckKux25HSsa",
-        consumer_password="k4EyWgYjXdvbcnbpvzQcoJWMmFYa"
-    )
-    print(await sapp.async_get_bill_inquiry(bill_id='9183502318'))
-
-
-if __name__ == "__main__":
-    import asyncio
-
-    asyncio.run(main())
