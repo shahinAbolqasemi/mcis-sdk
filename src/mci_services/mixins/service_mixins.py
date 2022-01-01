@@ -31,7 +31,7 @@ class BillServiceMixin:
             ] = 'mobile',
             url: str,
             client_authorization: ClientToken = None
-    ):
+    ) -> BillInquiry:
         headers = {
             "Accept": "application/json",
             "Authorization": self.access_token.access_token,
